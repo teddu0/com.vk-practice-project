@@ -25,12 +25,12 @@ public class BaseHelper {
         driver.findElement(locator).sendKeys(text, Keys.ENTER);
     }
 
-    public boolean isElementPresent (By locator){
-        try{
+    public boolean isElementPresent(By locator) {
+        try {
             driver.findElement(locator);
             return true;
 
-        }catch (NoSuchElementException ex){
+        } catch (NoSuchElementException ex) {
             return false;
         }
     }
