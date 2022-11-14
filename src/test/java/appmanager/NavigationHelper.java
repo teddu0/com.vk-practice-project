@@ -13,5 +13,8 @@ public class NavigationHelper extends BaseHelper {
         click(By.xpath("//li[@id='l_msg']"));
     }
 
+    public void goToProfile() {
+        click(By.xpath("//li[@id='l_pr']"));
+    }
 
 }
