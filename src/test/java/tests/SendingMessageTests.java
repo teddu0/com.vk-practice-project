@@ -9,10 +9,9 @@ public class SendingMessageTests extends TestBase {
     @Test
     public void testSendingTextMessage() throws InterruptedException {
         app.getNavigationHelper().goToMessages();
-        Thread.sleep(2000);
         app.getMessageSenderHelper().initContactForMessage();
-        Thread.sleep(2000);
         app.getMessageSenderHelper().fillMessageText(faker.harryPotter().spell());
+        app.getMessageSenderHelper().submitSendingMessage();
         Thread.sleep(2000);
     }
 

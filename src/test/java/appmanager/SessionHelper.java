@@ -12,8 +12,8 @@ public class SessionHelper extends BaseHelper {
     public void login(String login, String pass) throws InterruptedException {
         type(By.xpath("//input[@name='login']"), login);
         click(By.xpath("//button[@type='submit']"));
-        //waitElement(By.xpath("//input[@name='password']"));
-        Thread.sleep(4000);// временно
+        waitElement(By.xpath("//input[@name='password']"));
+       // Thread.sleep(4000);// временно
         type(By.xpath("//input[@name='password']"), pass);
         click(By.xpath("//button[@type='submit']"));
     }
