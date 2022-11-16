@@ -12,6 +12,8 @@ public class ApplicationManager {
     MessageSenderHelper messageSenderHelper;
     SessionHelper sessionHelper;
 
+    PostCreationHelper postCreationHelper;
+
     public void setUp() throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -21,6 +23,7 @@ public class ApplicationManager {
         navigationHelper = new NavigationHelper(driver);
         messageSenderHelper = new MessageSenderHelper(driver);
         sessionHelper = new SessionHelper(driver);
+        postCreationHelper = new PostCreationHelper(driver);
         driver.get("https://vk.com");
         sessionHelper.login("77712473368", "Secret2022");
 
@@ -39,5 +42,9 @@ public class ApplicationManager {
 
     public MessageSenderHelper getMessageSenderHelper() {
         return messageSenderHelper;
+    }
+
+    public PostCreationHelper getPostCreationHelper() {
+        return postCreationHelper;
     }
 }

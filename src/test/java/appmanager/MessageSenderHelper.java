@@ -10,12 +10,18 @@ public class MessageSenderHelper extends BaseHelper {
     }
 
     public void initContactForMessage() {
+        waitElement(By.xpath("//li[@data-list-id='310303767']"));
         click(By.xpath("//li[@data-list-id='310303767']"));
     }
 
     public void fillMessageText(String text) {
+        waitElement(By.xpath("//div[@role='textbox']"));
         click(By.xpath("//div[@role='textbox']"));
-        typeAndEnter(By.xpath("//div[@role='textbox']"), text);
+        type(By.xpath("//div[@role='textbox']"), text);
     }
 
+    public void submitSendingMessage(){
+        waitElement(By.xpath("//button[@class='im-send-btn im-chat-input--send _im_send im-send-btn_send']"));
+        click(By.xpath("//button[@class='im-send-btn im-chat-input--send _im_send im-send-btn_send']"));
+    }
 }
