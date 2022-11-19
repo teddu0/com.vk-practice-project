@@ -1,10 +1,14 @@
 package appmanager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
 
 public class BaseHelper {
+    private WebDriverWait wait;
 
     private WebDriver driver;
 
@@ -17,10 +21,27 @@ public class BaseHelper {
     }
 
     public void type(By locator, String text) {
+        driver.findElement(locator).clear();
         driver.findElement(locator).sendKeys(text);
     }
 
-    public void typeAndEnter(By locator, String text) {
-        driver.findElement(locator).sendKeys(text, Keys.ENTER);
+    public void tapKeys(By locator, Keys key){
+        driver.findElement(locator).sendKeys(key);
     }
+
+    public boolean isElementPresent(By locator) {
+        try {
+            driver.findElement(locator);
+            return true;
+
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
+    }
+
+    public void waitElementToBeClickable(By locator){
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
 }
